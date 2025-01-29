@@ -25,19 +25,14 @@ Product Viewer is an Angular application that allows users to view, filter, and 
 - **NGRX**: For state management, handling actions, reducers, effects, and selectors.
 
 ## Installation
+Go to project root folder.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/product-viewer.git
-   cd product-viewer
-   ```
-
-2. Install dependencies:
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Run the application:
+2. Run the application:
    ```bash
    ng serve
    ```
