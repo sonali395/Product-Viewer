@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="app-title">Favorite Products</span>
+  <button mat-icon-button class="home-icon" (click)="goToHomepage()" matTooltip="Go to Homepage">
+    <mat-icon>home</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-card class="favorites-card">
+  Product List
+  <mat-card-content>
+    <div *ngFor="let product of favorites$ | async" class="favorite-item">
+      <h3>{{ product.title }}</h3>
+      <p>Price: ${{ product.price }}</p>
+      <button mat-raised-button color="warn" class="warn" (click)="removeFromFavorites(product.id)">
+        Remove
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

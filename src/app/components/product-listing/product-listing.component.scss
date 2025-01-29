@@ -1,0 +1,242 @@
+@import '../../../styles/globals';
+
+.favorite-icon:hover {
+  background-color: $secondary-color;
+  color: $primary-color;
+}
+
+.category-filter {
+  margin-left: 5px;
+  margin-top: 25px;
+
+  .mat-select {
+    background-color: $secondary-color;
+    color: $dark-text-color;
+    font-family: $font-family;
+    font-weight: $font-weight-medium;
+  }
+
+  mat-option:hover {
+    color: $primary-color;
+    background-color: $secondary-color !important;
+  }
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 2rem 3rem;
+  background-color: $secondary-color;
+}
+
+mat-card.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px;
+  width: 350px;
+  padding: 1rem;
+  border-radius: $card-border-radius;
+  background: white;
+
+  &:hover {
+    background: #fad9bb;
+    transform: translateY(-4px);
+    cursor: pointer;
+  }
+
+  img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+mat-card-content {
+  text-align: center;
+
+  h3 {
+    font-family: $font-family;
+    font-size: $font-size-medium;
+    font-weight: $font-weight-bold;
+    margin: 0.5rem 0;
+    color: $dark-text-color;
+  }
+
+  p {
+    font-family: $font-family;
+    font-size: 1rem;
+    color: $light-text-color;
+  }
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  width: 100%;
+
+  button {
+    font-family: $font-family;
+    font-size: 13px;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: $primary-color;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    transition: background-color 0.3s ease;
+  }
+}
+
+.product-rating {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+
+  mat-icon {
+    color: #ff9800 !important;
+  }
+}
+
+.product-title {
+  overflow: hidden;         
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  display: block;
+  width: 100%;  
+  max-width: 260px; 
+  font-size: 1rem;
+  font-weight: $font-weight-medium;
+  color: #333;
+  cursor: pointer;
+  padding: 0 5px;  
+}
+
+// Responsive Styles
+@media (max-width: 1024px) and (min-width: 768px) {
+  .category-filter {
+    margin-top: 15px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 2rem 1.5rem;
+  }
+
+  mat-card.product-card {
+    height: 300px;
+    width: 280px;
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .product-title {
+    font-size: 0.9rem;
+    max-width: 150px;
+  }
+
+  .product-price {
+    font-size: 0.9rem;
+  }
+
+  .product-rating {
+    font-size: 0.9rem;
+  }
+
+  mat-card-actions button {
+    font-size: 13px;
+  }
+}
+
+
+@media (max-width: 768px) and (min-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 1.5rem;
+  }
+
+  mat-card.product-card {
+    height: 280px;
+    width: 100%;
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .product-title {
+    font-size: 0.9rem;
+    max-width: 100px;
+  }
+
+  .product-price {
+    font-size: 0.9rem;
+  }
+
+  .product-rating {
+    font-size: 0.9rem;
+  }
+
+  mat-card-actions button {
+    font-size: 12px;
+    padding: 0.5rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toolbar {
+    flex-direction: column;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .favorite-icon {
+    font-size: 1.3rem;
+  }
+
+  .category-filter {
+    margin-top: 10px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  mat-card.product-card {
+    height: 250px;
+    width: 100%;
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .product-title {
+    font-size: 0.8rem;
+    max-width: 180px;
+  }
+
+  .product-price {
+    font-size: 0.8rem;
+  }
+
+  .product-rating {
+    font-size: 0.8rem;
+  }
+
+  mat-card-actions button {
+    font-size: 12px;
+    padding: 0.5rem 1.2rem;
+  }
+}

@@ -1,0 +1,43 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="toolbar">
+  <span class="app-title spacer">Product Viewer</span>
+  <button mat-icon-button class="favorite-icon" (click)="goToWishlist()" matTooltip="Your Favorites">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <div class="category-filter">
+    <mat-form-field>
+      <mat-label>Filter by Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" (selectionChange)="filterByCategory($event.value)">
+        <mat-option [value]="''">All</mat-option>
+        <mat-option *ngFor="let category of categories" [value]="category.name">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-toolbar>
+<!-- Product Grid -->
+<div class="product-grid">
+  <mat-grid-list cols="4" rowHeight="350px" gutterSize="30px">
+    <mat-grid-tile *ngFor="let product of filteredProducts; trackBy: trackByProductId">
+      <mat-card class="product-card">
+        <img mat-card-image [src]="product.thumbnail" alt="Product Image"/>
+        <mat-card-content>
+          <p class="product-title">{{ product.title }}</p>
+          <p class="product-price">Price: ${{ product.price }}</p>
+          <div class="product-rating">
+            <mat-icon *ngFor="let star of generateStars(product.rating)" color="accent">star</mat-icon>
+            <mat-icon *ngFor="let emptyStar of generateEmptyStars(product.rating)" color="accent">
+              star_border
+            </mat-icon>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" class='primary' (click)="openProductModal(product)">
+            View Details
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

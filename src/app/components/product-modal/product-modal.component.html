@@ -1,0 +1,23 @@
+<div mat-dialog-title class="modal-header" tabindex="-1">
+  {{ product.title }}
+</div>
+
+<mat-dialog-content class="modal-content">
+  <p class="description">{{ product.description }}</p>
+  <p><strong>Stock:</strong> {{ product.stock }}</p>
+  <p><strong>Price:</strong> ${{ product.price }}</p>
+
+  <div class="image-gallery">
+    <img *ngFor="let img of product.images" [src]="img" alt="Product Image" class="gallery-image" />
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="modal-actions">
+  <button mat-button class="cancel" (click)="onClose()">
+    Cancel
+  </button>
+  <button mat-raised-button color="primary" class="primary" [disabled]="isFavorite(product) | async"
+    (click)="addToFavorites()">
+    {{ (isFavorite(product) | async) ? 'Already in Favorites' : 'Add to Favorites' }}
+  </button>
+</mat-dialog-actions>
